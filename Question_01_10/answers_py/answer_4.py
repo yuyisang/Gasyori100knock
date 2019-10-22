@@ -15,10 +15,11 @@ def BGR2GRAY(img):
 	return out
 
 # Otsu Binalization
-def otsu_binarization(img, th=128):
+def otsu_binarization(out, th=128):
 	imax_sigma = 0
 	max_t = 0
-
+	H = out.shape[0]
+	w = out.shape[1]
 	# determine threshold
 	for _t in range(1, 255):
 		v0 = out[np.where(out < _t)]
